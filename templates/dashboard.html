@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · Smart Feedback{% endblock %}
+{% block content %}
+<h1>Feedback analytics</h1>
+<div class="kpis">
+  <div class="kpi"><span id="kTotal">0</span><small>Total feedback</small></div>
+  <div class="kpi"><span id="kRating">0</span><small>Avg rating</small></div>
+  <div class="kpi"><span id="kScore">0</span><small>Avg sentiment</small></div>
+  <div class="kpi pos"><span id="kPos">0%</span><small>Positive</small></div>
+</div>
+<div class="grid">
+  <div class="card"><h3>Sentiment split</h3><canvas id="sentChart"></canvas></div>
+  <div class="card"><h3>Ratings</h3><canvas id="ratingChart"></canvas></div>
+  <div class="card"><h3>By category</h3><canvas id="catChart"></canvas></div>
+  <div class="card"><h3>Daily trend</h3><canvas id="trendChart"></canvas></div>
+</div>
+<section class="card">
+  <div class="toolbar">
+    <h3>All feedback</h3>
+    <input id="search" placeholder="Search messages…">
+    <select id="filterSent"><option value="">All sentiments</option><option>positive</option><option>neutral</option><option>negative</option></select>
+  </div>
+  <div class="table-wrap"><table>
+    <thead><tr><th>Date</th><th>Name</th><th>Category</th><th>Rating</th><th>Message</th><th>Sentiment</th><th></th></tr></thead>
+    <tbody id="fbBody"></tbody>
+  </table></div>
+  <div class="pager"><button id="prev" class="btn ghost">‹ Prev</button><span id="pageInfo"></span><button id="next" class="btn ghost">Next ›</button></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

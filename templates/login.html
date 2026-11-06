@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Admin login · Smart Feedback{% endblock %}
+{% block content %}
+<section class="card narrow">
+  <h1>Administrator login</h1>
+  <p class="muted">Sign in to access feedback analytics and store management.</p>
+  {% if error %}<p class="error" role="alert">{{ error }}</p>{% endif %}
+  <form method="post" action="{{ url_for('admin_login') }}">
+    <label>Username<input name="username" required autocomplete="username"></label>
+    <label>Password<input name="password" type="password" required autocomplete="current-password"></label>
+    <button class="btn" type="submit">Log in</button>
+  </form>
+</section>
+{% endblock %}

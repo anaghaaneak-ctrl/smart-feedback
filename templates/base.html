@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Smart Feedback{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="{{ url_for('home') }}">◆ Smart Feedback</a>
+    <nav>
+      <a href="{{ url_for('home') }}">Submit</a>
+      {% if session.get("admin_logged_in") %}
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('admin') }}">Store admin</a>
+        <form class="nav-logout" method="post" action="{{ url_for('admin_logout') }}">
+          <button type="submit">Logout</button>
+        </form>
+      {% else %}
+        <a href="{{ url_for('admin_login') }}">Admin login</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main class="container">{% block content %}{% endblock %}</main>
+  <div id="toast" class="toast"></div>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

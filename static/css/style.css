@@ -1,0 +1,37 @@
+:root{--bg:#0e1116;--card:#171b22;--line:#262c36;--text:#e8ebf0;--muted:#8b94a3;--accent:#f5a524;
+--pos:#22c55e;--neu:#94a3b8;--neg:#ef4444;--radius:14px;font-family:"Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}
+a{color:inherit;text-decoration:none}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--bg);z-index:5}
+.brand{font-weight:700;color:var(--accent)}.nav nav{display:flex;align-items:center;gap:1.5rem}.nav nav a{color:var(--muted)}.nav nav a:hover{color:var(--text)}
+.nav-logout{display:inline;margin:0}.nav-logout button{padding:0;border:0;background:none;color:var(--muted);font:inherit;cursor:pointer}.nav-logout button:hover{color:var(--text)}
+.container{max-width:1200px;margin:2rem auto;padding:0 1rem}
+h1{font-size:2rem;margin:.2rem 0 1rem}h3{margin:0 0 1rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.5rem}
+.narrow{max-width:680px;margin:0 auto}.muted{color:var(--muted)}.small{font-size:.85rem}
+label{display:block;margin:.8rem 0 .3rem;font-size:.9rem;color:var(--muted)}
+input,select,textarea{width:100%;padding:.7rem;border-radius:10px;border:1px solid var(--line);background:#0f1318;color:var(--text);font:inherit;margin-top:.3rem}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.stars button{background:none;border:none;font-size:2rem;color:var(--line);cursor:pointer;transition:transform .1s}
+.stars button.on{color:var(--accent)}.stars button:hover{transform:scale(1.15)}
+.btn{background:var(--accent);color:#111;border:none;padding:.7rem 1.3rem;border-radius:10px;font-weight:600;cursor:pointer;margin-top:1rem}
+.btn:hover{filter:brightness(1.1)}.btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);margin:0}
+.btn.sm{padding:.3rem .7rem;font-size:.8rem;margin:0}.btn.danger{background:var(--neg);color:#fff}
+.error{color:var(--neg);min-height:1em}.hidden{display:none}
+.result{margin-top:1.5rem;padding:1rem;border-radius:10px;border:1px solid var(--line)}
+.badge{padding:.2rem .6rem;border-radius:99px;font-size:.75rem;font-weight:600;text-transform:capitalize}
+.badge.positive{background:#22c55e22;color:var(--pos)}.badge.neutral{background:#94a3b822;color:var(--neu)}.badge.negative{background:#ef444422;color:var(--neg)}
+.badge.Placed{background:#f5a52422;color:var(--accent)}.badge.Shipped{background:#3b82f622;color:#60a5fa}.badge.Delivered{background:#22c55e22;color:var(--pos)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1.5rem}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.2rem}
+.kpi span{display:block;font-size:2rem;font-weight:700}.kpi small{color:var(--muted)}.kpi.pos span{color:var(--pos)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}.grid .card{margin:0}.grid+.card{margin-top:1.5rem}
+.toolbar{display:flex;gap:1rem;align-items:center;flex-wrap:wrap}.toolbar h3{margin:0;flex:1}.toolbar input,.toolbar select{width:auto;margin:0}
+.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;margin-top:1rem;font-size:.9rem}
+th,td{text-align:left;padding:.6rem;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:500}
+td.msg{max-width:320px}.pager{display:flex;justify-content:center;gap:1rem;align-items:center;margin-top:1rem}
+form.inline{display:flex;gap:.5rem;flex-wrap:wrap}form.inline input,form.inline select{flex:1;min-width:90px}form.inline .btn{margin:0.3rem 0 0}
+.toast{position:fixed;bottom:2rem;right:2rem;background:var(--card);border:1px solid var(--line);padding:1rem 1.4rem;border-radius:10px;opacity:0;transform:translateY(20px);transition:.3s;pointer-events:none}
+.toast.show{opacity:1;transform:none}
+@media(max-width:800px){.row,.grid,.kpis{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.nav{padding:1rem}}
